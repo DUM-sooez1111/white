@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>백지의 뜰 — 전투 맵</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">紙</span>
+          <div>
+            <strong>백지의 뜰</strong>
+            <span>THE PAPER COURTYARD</span>
+          </div>
+        </div>
+        <div class="location">
+          <span>현재 구역</span>
+          <strong id="locationName">먹빛 문턱</strong>
+        </div>
+        <div class="controls"><kbd>WASD</kbd><span>이동</span><kbd>SHIFT</kbd><span>질주</span></div>
+      </header>
+
+      <section class="stage-wrap">
+        <canvas id="game" width="1280" height="720" aria-label="종이 인형 검술 게임의 탐험 가능한 맵"></canvas>
+        <div class="map-title" id="mapTitle">
+          <span>제 1장</span>
+          <strong>먹빛 문턱</strong>
+        </div>
+        <div class="vignette"></div>
+      </section>
+
+      <footer class="hud">
+        <div class="objective"><i></i><span>목표</span><strong>백지의 뜰을 탐색하세요</strong></div>
+        <div class="legend">
+          <span><i class="dot player-dot"></i>검객</span>
+          <span><i class="dot doll-dot"></i>종이 인형 배치점</span>
+          <span><i class="dot gate-dot"></i>구역 관문</span>
+        </div>
+        <button id="mapButton" type="button">지도 <kbd>M</kbd></button>
+      </footer>
+
+      <aside class="map-panel" id="mapPanel" aria-hidden="true">
+        <div class="panel-head">
+          <div><span>전투 구역 개요</span><h1>백지의 뜰</h1></div>
+          <button id="closeMap" aria-label="지도 닫기">×</button>
+        </div>
+        <canvas id="miniMap" width="820" height="460"></canvas>
+        <div class="zone-list">
+          <span><b>01</b> 먹빛 문턱</span>
+          <span><b>02</b> 접힌 회랑</span>
+          <span><b>03</b> 붉은 실 마당</span>
+          <span><b>04</b> 천학의 제단</span>
+        </div>
+      </aside>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>

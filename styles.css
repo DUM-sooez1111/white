@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700;900&family=Rajdhani:wght@500;600&display=swap');
+
+:root { color-scheme: dark; --paper:#e8e0cf; --ink:#171715; --red:#bd3a31; --gold:#bda262; }
+* { box-sizing: border-box; }
+html, body { width:100%; height:100%; margin:0; overflow:hidden; background:#0d0e0d; }
+body { font-family:'Noto Serif KR',serif; color:var(--paper); }
+.game-shell { position:relative; width:100%; height:100%; display:grid; grid-template-rows:72px minmax(0,1fr) 62px; background:#151613; }
+.topbar,.hud { z-index:5; display:flex; align-items:center; padding:0 30px; background:rgba(16,17,15,.96); border-color:#34352f; }
+.topbar { border-bottom:1px solid #34352f; justify-content:space-between; }
+.brand { display:flex; align-items:center; gap:12px; min-width:260px; }
+.brand-mark { display:grid; place-items:center; width:38px; height:38px; color:#171715; background:var(--paper); font-weight:900; font-size:21px; transform:rotate(-2deg); }
+.brand div,.location { display:flex; flex-direction:column; }
+.brand strong { letter-spacing:.12em; font-size:15px; }
+.brand div span,.location span { font-family:Rajdhani,sans-serif; color:#77796f; letter-spacing:.16em; font-size:10px; }
+.location { text-align:center; }
+.location strong { margin-top:3px; font-size:17px; }
+.controls { min-width:260px; display:flex; justify-content:flex-end; align-items:center; gap:7px; font:600 12px Rajdhani,sans-serif; color:#77796f; }
+kbd { padding:4px 7px; color:#c7c2b5; background:#292a26; border:1px solid #41423c; border-bottom-color:#5a5b53; border-radius:2px; font:600 10px Rajdhani,sans-serif; }
+.stage-wrap { position:relative; min-height:0; overflow:hidden; background:#1c1e1b; }
+#game { display:block; width:100%; height:100%; }
+.vignette { pointer-events:none; position:absolute; inset:0; box-shadow:inset 0 0 140px 40px rgba(0,0,0,.68); }
+.map-title { position:absolute; left:34px; top:30px; display:flex; flex-direction:column; opacity:0; transform:translateY(8px); transition:.45s; text-shadow:0 2px 8px #000; }
+.map-title.show { opacity:1; transform:none; }
+.map-title span { color:var(--red); font-size:11px; letter-spacing:.2em; }
+.map-title strong { font-size:28px; letter-spacing:.08em; }
+.hud { border-top:1px solid #34352f; justify-content:space-between; }
+.objective { display:grid; grid-template-columns:8px auto auto; align-items:center; gap:9px; font-size:12px; }
+.objective i { width:6px; height:6px; background:var(--red); transform:rotate(45deg); }
+.objective span { color:#77796f; }
+.objective strong { font-size:12px; }
+.legend { display:flex; gap:25px; color:#8b8c82; font:500 11px Rajdhani,sans-serif; letter-spacing:.04em; }
+.legend span { display:flex; align-items:center; gap:7px; }
+.dot { width:7px; height:7px; border-radius:50%; }
+.player-dot { background:#efe7d4; box-shadow:0 0 5px #fff; }.doll-dot{background:#bd3a31}.gate-dot{border:1px solid #bda262}
+#mapButton { border:0; color:#aaa99f; background:transparent; font:700 12px 'Noto Serif KR'; cursor:pointer; }
+#mapButton kbd { margin-left:8px; }
+.map-panel { z-index:10; position:absolute; inset:72px 0 62px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:30px; background:rgba(13,14,13,.94); backdrop-filter:blur(8px); opacity:0; pointer-events:none; transition:.25s; }
+.map-panel.open { opacity:1; pointer-events:auto; }
+.panel-head { width:min(820px,90vw); display:flex; justify-content:space-between; align-items:end; border-bottom:1px solid #3b3c36; padding-bottom:14px; }
+.panel-head span { color:var(--red); font-size:10px; letter-spacing:.2em; }.panel-head h1{margin:4px 0 0;font-size:28px}.panel-head button{border:0;background:none;color:#aaa;font-size:32px;cursor:pointer}
+#miniMap { width:min(820px,90vw); height:auto; max-height:55vh; background:#191a17; border:1px solid #3b3c36; }
+.zone-list { width:min(820px,90vw); display:flex; justify-content:space-between; color:#77796f; font-size:11px; }.zone-list b{color:var(--gold);margin-right:6px}
+@media(max-width:760px){.controls,.legend{display:none}.brand{min-width:auto}.location{align-items:flex-end}.topbar,.hud{padding:0 16px}.map-title{left:18px}.zone-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}}
